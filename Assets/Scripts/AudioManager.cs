@@ -22,11 +22,16 @@ public class AudioManager : MonoBehaviour
 
     public void PlayVunerableHitSound()
     {
-        vunerableHitSound.Play();        
+        PlaySourceOneShot(vunerableHitSound);
     }
 
     public void PlayResistantHitSound()
     {
-        resistantHitSound.Play();
+        PlaySourceOneShot(resistantHitSound);
+    }
+
+    public void PlaySourceOneShot(AudioSource audioSource)
+    {
+        audioSource.PlayOneShot(audioSource.clip);
     }
 }

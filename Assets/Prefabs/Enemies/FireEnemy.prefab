@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 3931868877814466556, guid: d5d720774bbdb3140986e3f4e9db57aa,
         type: 3}
       propertyPath: m_Name
-      value: FireElement
+      value: FireEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 3862895485119717058, guid: d5d720774bbdb3140986e3f4e9db57aa,
         type: 3}
@@ -67,6 +67,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2494575898188282460, guid: d5d720774bbdb3140986e3f4e9db57aa,
+        type: 3}
+      propertyPath: elementWeaknesses.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2002450156501856556, guid: d5d720774bbdb3140986e3f4e9db57aa,
         type: 3}
       propertyPath: m_Color.r
@@ -81,11 +86,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.38823533
-      objectReference: {fileID: 0}
-    - target: {fileID: 2494575898188282460, guid: d5d720774bbdb3140986e3f4e9db57aa,
-        type: 3}
-      propertyPath: elementWeaknesses.Array.data[0]
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5d720774bbdb3140986e3f4e9db57aa, type: 3}
