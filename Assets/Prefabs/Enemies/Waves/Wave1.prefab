@@ -326,11 +326,11 @@ MonoBehaviour:
   enemySpawns:
   - enemyPrefab: {fileID: 7984865767227630608, guid: 1ff56fc3e44ae474785135731fe72147,
       type: 3}
-    position: {fileID: 5554852977855525389}
+    position: {fileID: 5554852977753975836}
     spawnSeqType: 0
   - enemyPrefab: {fileID: 7984865767227630608, guid: 1ff56fc3e44ae474785135731fe72147,
       type: 3}
-    position: {fileID: 5554852977753975836}
+    position: {fileID: 5554852977855525389}
     spawnSeqType: 0
   - enemyPrefab: {fileID: 7984865767227630608, guid: 1ff56fc3e44ae474785135731fe72147,
       type: 3}
@@ -342,11 +342,15 @@ MonoBehaviour:
     spawnSeqType: 0
   - enemyPrefab: {fileID: 7984865767227630608, guid: 1ff56fc3e44ae474785135731fe72147,
       type: 3}
+    position: {fileID: 5554852977500709875}
+    spawnSeqType: 0
+  - enemyPrefab: {fileID: 7984865767227630608, guid: 1ff56fc3e44ae474785135731fe72147,
+      type: 3}
     position: {fileID: 5554852978409467568}
     spawnSeqType: 0
   - enemyPrefab: {fileID: 7984865767227630608, guid: 1ff56fc3e44ae474785135731fe72147,
       type: 3}
-    position: {fileID: 5554852977500709875}
+    position: {fileID: 5554852978716747442}
     spawnSeqType: 0
   - enemyPrefab: {fileID: 7984865767227630608, guid: 1ff56fc3e44ae474785135731fe72147,
       type: 3}
@@ -355,10 +359,6 @@ MonoBehaviour:
   - enemyPrefab: {fileID: 7984865767227630608, guid: 1ff56fc3e44ae474785135731fe72147,
       type: 3}
     position: {fileID: 5554852977692132363}
-    spawnSeqType: 0
-  - enemyPrefab: {fileID: 7984865767227630608, guid: 1ff56fc3e44ae474785135731fe72147,
-      type: 3}
-    position: {fileID: 5554852978716747442}
     spawnSeqType: 0
 --- !u!1 &5554852978716747453
 GameObject:
