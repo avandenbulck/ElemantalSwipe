@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public GameObject wavePrefab;
+    public GameObject[] waves;
     public float timeToSpawnWave;
+
+    int waveIndex;
 
     // Start is called before the first frame update
     void Start()
     {
+        waveIndex = 0;
         StartWaveSpawn();
     }
 
@@ -21,8 +24,12 @@ public class WaveSpawner : MonoBehaviour
     public IEnumerator SpawnWave()
     {
         yield return new WaitForSeconds(timeToSpawnWave);
-        GameObject waveObject = Instantiate(wavePrefab);
+        GameObject waveObject = Instantiate(waves[waveIndex]);
         Wave wave = waveObject.GetComponent<Wave>();
         wave.OnWaveComplete += StartWaveSpawn;
+
+        waveIndex++;
+        if (waveIndex >= waves.Length)
+            waveIndex = 0;
     }
 }

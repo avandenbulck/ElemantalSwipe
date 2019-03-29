@@ -38,7 +38,7 @@ public class Wave : MonoBehaviour
             enemySpawnIndex++;
             GameObject enemyObject = Instantiate(enemySpawnInfo.enemyPrefab, enemySpawnInfo.position.position, Quaternion.identity);
             enemiesLeft += 1;
-            Enemy enemy = enemyObject.GetComponent<Enemy>();
+            Enemy enemy = enemyObject.GetComponentInChildren<Enemy>();
             enemy.OnDeath += EnemyDied;
             switch (enemySpawnInfo.spawnSeqType)
             {

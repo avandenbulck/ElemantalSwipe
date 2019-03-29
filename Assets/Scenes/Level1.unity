@@ -637,8 +637,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01ae791c24846c4bba61393669c3008, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wavePrefab: {fileID: 5554852978684673069, guid: c995109a3fbd3634cb58f53fab589922,
-    type: 3}
+  waves:
+  - {fileID: 5554852978684673069, guid: c995109a3fbd3634cb58f53fab589922, type: 3}
+  - {fileID: 9024930349357208320, guid: 686964f3ed26a434792df9b65e3f2961, type: 3}
   timeToSpawnWave: 1
 --- !u!4 &1822548221
 Transform:
