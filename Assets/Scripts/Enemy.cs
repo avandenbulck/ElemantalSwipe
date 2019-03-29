@@ -8,10 +8,12 @@ public class Enemy : MonoBehaviour
     public List<ElementType> elementWeaknesses;
     public event Action OnDeath = delegate { };
 
+    Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -28,12 +30,18 @@ public class Enemy : MonoBehaviour
             Destroy(collision.gameObject);
             if (elementWeaknesses.Contains(projectile.elementType))
             {
-                Destroy(this.gameObject);
+                
                 AudioManager.instance.PlayVunerableHitSound();
                 OnDeath.Invoke();
+                animator.Play("Destroyed");
             }
             else
                 AudioManager.instance.PlayResistantHitSound();
         }
+    }
+
+    public void DestroyObject()
+    {
+        Destroy(this.gameObject);
     }
 }
