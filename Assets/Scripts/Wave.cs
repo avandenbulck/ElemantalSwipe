@@ -40,17 +40,23 @@ public class Wave : MonoBehaviour
             enemiesLeft += 1;
             Enemy enemy = enemyObject.GetComponentInChildren<Enemy>();
             enemy.OnDeath += EnemyDied;
-            switch (enemySpawnInfo.spawnSeqType)
+
+            if(enemySpawnIndex < enemySpawns.Length)
             {
-                case SpawnSequenceType.PreviousEnemiesCleared:
-                    spawnWhenEnemiesCleared = true;
-                    break;
-                case SpawnSequenceType.Immediate:
-                    SpawnNextEnemy();
-                    break;
-                default:
-                    break;
+                EnemySpawnInfo nextEnemySpawnInfo = enemySpawns[enemySpawnIndex];
+                switch (nextEnemySpawnInfo.spawnSeqType)
+                {
+                    case SpawnSequenceType.PreviousEnemiesCleared:
+                        spawnWhenEnemiesCleared = true;
+                        break;
+                    case SpawnSequenceType.Immediate:
+                        SpawnNextEnemy();
+                        break;
+                    default:
+                        break;
+                }
             }
+            
         } 
     }
 

@@ -339,27 +339,27 @@ MonoBehaviour:
   - enemyPrefab: {fileID: 7984865767227630608, guid: 1ff56fc3e44ae474785135731fe72147,
       type: 3}
     position: {fileID: 5554852976943275340}
-    spawnSeqType: 0
+    spawnSeqType: 1
   - enemyPrefab: {fileID: 7984865767227630608, guid: 1ff56fc3e44ae474785135731fe72147,
       type: 3}
     position: {fileID: 5554852977500709875}
     spawnSeqType: 0
   - enemyPrefab: {fileID: 7984865767227630608, guid: 1ff56fc3e44ae474785135731fe72147,
       type: 3}
+    position: {fileID: 5554852977692132363}
+    spawnSeqType: 1
+  - enemyPrefab: {fileID: 7984865767227630608, guid: 1ff56fc3e44ae474785135731fe72147,
+      type: 3}
     position: {fileID: 5554852978409467568}
     spawnSeqType: 0
   - enemyPrefab: {fileID: 7984865767227630608, guid: 1ff56fc3e44ae474785135731fe72147,
       type: 3}
-    position: {fileID: 5554852978716747442}
-    spawnSeqType: 0
-  - enemyPrefab: {fileID: 7984865767227630608, guid: 1ff56fc3e44ae474785135731fe72147,
-      type: 3}
     position: {fileID: 5554852976914749722}
-    spawnSeqType: 0
+    spawnSeqType: 1
   - enemyPrefab: {fileID: 7984865767227630608, guid: 1ff56fc3e44ae474785135731fe72147,
       type: 3}
-    position: {fileID: 5554852977692132363}
-    spawnSeqType: 0
+    position: {fileID: 5554852978716747442}
+    spawnSeqType: 1
 --- !u!1 &5554852978716747453
 GameObject:
   m_ObjectHideFlags: 0
