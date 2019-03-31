@@ -15,13 +15,19 @@ public class RotationalMovement : MonoBehaviour
         moving = true;
         rb = GetComponent<Rigidbody2D>();
         Enemy enemyScript = GetComponent<Enemy>();
-        enemyScript.OnDeath += StopMoving;
+        if(enemyScript != null)
+            enemyScript.OnDeath += StopMoving;
     }
 
     public void Update()
     {
-        if(moving)
+        if (moving)
+        {
+            Quaternion previousRot = transform.rotation;
             transform.RotateAround(rotateAroundPoint.position, Vector3.forward, speed * Time.deltaTime);
+            transform.rotation = previousRot;
+        }
+            
     }
 
     public void StopMoving()
