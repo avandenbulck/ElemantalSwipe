@@ -19,7 +19,8 @@ public class WayPointMovement : MonoBehaviour
         moving = true;
         rb = GetComponent<Rigidbody2D>();
         Enemy enemyScript = GetComponent<Enemy>();
-        enemyScript.OnDeath += StopMoving;
+        if(enemyScript != null)
+            enemyScript.OnDeath += StopMoving;
     }
 
     // Update is called once per frame

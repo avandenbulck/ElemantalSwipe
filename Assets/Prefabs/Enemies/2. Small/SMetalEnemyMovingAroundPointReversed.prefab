@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 3870117260997905000, guid: beab27dcb018dbd44909b8e25d8d4c5b,
         type: 3}
       propertyPath: m_Name
-      value: SMetalEnemyMovingAroundPointReversed
+      value: SMetalEnemyMovingAroundPointReversed Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8613405840449283594, guid: beab27dcb018dbd44909b8e25d8d4c5b,
         type: 3}
@@ -81,6 +81,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5435162923530467427, guid: beab27dcb018dbd44909b8e25d8d4c5b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8298322377941747638, guid: beab27dcb018dbd44909b8e25d8d4c5b,
         type: 3}

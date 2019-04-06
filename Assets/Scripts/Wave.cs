@@ -16,6 +16,7 @@ public class Wave : MonoBehaviour
 
     int enemySpawnIndex;
     bool spawnWhenEnemiesCleared;
+    List<GameObject> indestructableObjects;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,7 @@ public class Wave : MonoBehaviour
         //    enemy.OnDeath += EnemyDied;
         //}
         enemySpawnIndex = 0;
+        indestructableObjects = new List<GameObject>();
         spawnWhenEnemiesCleared = false;
         SpawnNextEnemy();
     }
@@ -37,9 +39,17 @@ public class Wave : MonoBehaviour
             EnemySpawnInfo enemySpawnInfo = enemySpawns[enemySpawnIndex];
             enemySpawnIndex++;
             GameObject enemyObject = Instantiate(enemySpawnInfo.enemyPrefab, enemySpawnInfo.position.position, Quaternion.identity);
-            enemiesLeft += 1;
-            Enemy enemy = enemyObject.GetComponentInChildren<Enemy>();
-            enemy.OnDeath += EnemyDied;
+
+            if(enemySpawnInfo.spawnSeqType != SpawnSequenceType.Indestructable)
+            {
+                enemiesLeft += 1;
+                Enemy enemy = enemyObject.GetComponentInChildren<Enemy>();
+                enemy.OnDeath += EnemyDied;
+            }
+            else
+            {
+                indestructableObjects.Add(enemyObject);
+            }
 
             if(enemySpawnIndex < enemySpawns.Length)
             {
@@ -50,6 +60,9 @@ public class Wave : MonoBehaviour
                         spawnWhenEnemiesCleared = true;
                         break;
                     case SpawnSequenceType.Immediate:
+                        SpawnNextEnemy();
+                        break;
+                    case SpawnSequenceType.Indestructable:
                         SpawnNextEnemy();
                         break;
                     default:
@@ -74,6 +87,10 @@ public class Wave : MonoBehaviour
                 }              
             } else
             {
+                foreach (GameObject indestructableObject in indestructableObjects)
+                {
+                    Destroy(indestructableObject);
+                }
                 OnWaveComplete.Invoke();
                 Destroy(gameObject);
             }         
@@ -92,5 +109,6 @@ public class EnemySpawnInfo
 public enum SpawnSequenceType
 {
     PreviousEnemiesCleared,
-    Immediate
+    Immediate,
+    Indestructable
 }

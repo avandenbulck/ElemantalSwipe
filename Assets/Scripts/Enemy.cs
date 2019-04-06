@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 {
     public List<ElementType> elementWeaknesses;
     public event Action OnDeath = delegate { };
+    public event Action OnDestroy = delegate { };
 
     Animator animator;
     Rigidbody2D rb;
@@ -49,6 +50,7 @@ public class Enemy : MonoBehaviour
 
     public void DestroyObject()
     {
+        OnDestroy.Invoke();
         Destroy(this.gameObject);
     }
 }
