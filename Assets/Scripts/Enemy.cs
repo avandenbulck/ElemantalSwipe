@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public event Action OnDeath = delegate { };
 
     Animator animator;
+    Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,12 @@ public class Enemy : MonoBehaviour
                 AudioManager.instance.PlayVunerableHitSound();
                 OnDeath.Invoke();
                 animator.Play("Destroyed");
+                Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
+
+                foreach (Collider2D collider in colliders)
+                {
+                    collider.enabled = false;
+                }
             }
             else
                 AudioManager.instance.PlayResistantHitSound();

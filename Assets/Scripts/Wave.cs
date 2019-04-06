@@ -8,7 +8,7 @@ public class Wave : MonoBehaviour
     //public Vector3 targetPos;
     //public float speed;
 
-    public event Action OnWaveComplete;
+    public event Action OnWaveComplete = delegate {};
 
     public EnemySpawnInfo[] enemySpawns;
 

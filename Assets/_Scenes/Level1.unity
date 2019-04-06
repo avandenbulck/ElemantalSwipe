@@ -850,6 +850,7 @@ MonoBehaviour:
   waves:
   - {fileID: 5554852978684673069, guid: c995109a3fbd3634cb58f53fab589922, type: 3}
   - {fileID: 9024930349357208320, guid: 686964f3ed26a434792df9b65e3f2961, type: 3}
+  - {fileID: 2037777535, guid: c1d19837815729a4b85b7769ead29cc0, type: 3}
   timeToSpawnWave: 1
 --- !u!4 &1822548221
 Transform:
