@@ -9,7 +9,6 @@ public class AudioManager : MonoBehaviour
     public AudioSource vunerableHitSound;
     public AudioSource resistantHitSound;
 
-    // Start is called before the first frame update
     void Awake()
     {
         if (instance == null)

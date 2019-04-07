@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class WaveSpawner : MonoBehaviour
 {
     public GameObject[] waves;
-    public float timeToSpawnWave;
+    public float timeBeforeSpawningAWave;
     public event Action<int, int> OnWaveChanged;
     public event Action OnWavesCompleted;
 
@@ -18,10 +16,10 @@ public class WaveSpawner : MonoBehaviour
     {
         waveIndex = 0;
         OnWaveChanged.Invoke(1, waves.Length);
-        StartWaveSpawn();
+        StartSpawningWave();
     }
 
-    void StartWaveSpawn()
+    void StartSpawningWave()
     {
         StartCoroutine(SpawnWave());
     }
@@ -33,19 +31,17 @@ public class WaveSpawner : MonoBehaviour
             OnWavesCompleted.Invoke();
         else
         {
-            StartWaveSpawn();
+            StartSpawningWave();
             OnWaveChanged.Invoke(waveIndex + 1, waves.Length);
         }  
     }
 
     public IEnumerator SpawnWave()
     {
-        yield return new WaitForSeconds(timeToSpawnWave);
+        yield return new WaitForSeconds(timeBeforeSpawningAWave);
         GameObject waveObject = Instantiate(waves[waveIndex]);
         Wave wave = waveObject.GetComponent<Wave>();
-        wave.OnWaveComplete += WaveComplete;
-        
+        wave.OnWaveComplete += WaveComplete; 
     }
-
 
 }

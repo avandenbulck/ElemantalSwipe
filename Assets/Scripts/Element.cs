@@ -16,10 +16,9 @@ public class Element : MonoBehaviour
 
     public void ShootProjectile(Vector2 angle)
     {
-        //Debug.Log("Shot element " + elementType + " in direction " + angle);
-        float eulerAngle = Vector2.SignedAngle(Vector2.up, angle.normalized);
-        GameObject projectileGO = Instantiate(projectilePrefab, trans.position, Quaternion.Euler(0,0,eulerAngle));
-        Projectile projectile = projectileGO.GetComponent<Projectile>();
-        projectile.Shoot(angle);
+        float eulerAngleToShootAt = Vector2.SignedAngle(Vector2.up, angle.normalized);
+        GameObject newProjectileGameObject = Instantiate(projectilePrefab, trans.position, Quaternion.Euler(0,0,eulerAngleToShootAt));
+        Projectile newProjectile = newProjectileGameObject.GetComponent<Projectile>();
+        newProjectile.Shoot(angle);
     }
 }

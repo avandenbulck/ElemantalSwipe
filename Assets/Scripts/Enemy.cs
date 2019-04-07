@@ -12,39 +12,37 @@ public class Enemy : MonoBehaviour
     Animator animator;
     Rigidbody2D rb;
 
-    // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Projectile projectile = collision.gameObject.GetComponent<Projectile>();
-        if (projectile != null)
+        GameObject collidedGameObject = collision.gameObject;
+        Projectile collidedProjectile = collidedGameObject.GetComponent<Projectile>();
+        if (collidedProjectile != null)
         {
-            Destroy(collision.gameObject);
-            if (elementWeaknesses.Contains(projectile.elementType))
-            {
-                
+            Destroy(collidedGameObject);
+            if (elementWeaknesses.Contains(collidedProjectile.elementType))
+            {           
                 AudioManager.instance.PlayVunerableHitSound();
                 OnDeath.Invoke();
                 animator.Play("Destroyed");
-                Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
-
-                foreach (Collider2D collider in colliders)
-                {
-                    collider.enabled = false;
-                }
+                DisableColliders();
             }
             else
                 AudioManager.instance.PlayResistantHitSound();
+        }
+    }
+
+    private void DisableColliders()
+    {
+        Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
+
+        foreach (Collider2D collider in colliders)
+        {
+            collider.enabled = false;
         }
     }
 

@@ -5,27 +5,17 @@ using UnityEngine;
 
 public class Wave : MonoBehaviour
 {
-    //public Vector3 targetPos;
-    //public float speed;
-
-    public event Action OnWaveComplete = delegate {};
-
     public EnemySpawnInfo[] enemySpawns;
 
-    int enemiesLeft;
+    public event Action OnWaveComplete = delegate { };
 
+    int enemiesLeft;
     int enemySpawnIndex;
     bool spawnWhenEnemiesCleared;
     List<GameObject> indestructableObjects;
-    // Start is called before the first frame update
+
     void Start()
     {
-        //Enemy[] allEnemies = GetComponentsInChildren<Enemy>();
-        //enemiesLeft = allEnemies.Length;
-        //foreach (Enemy enemy in allEnemies)
-        //{
-        //    enemy.OnDeath += EnemyDied;
-        //}
         enemySpawnIndex = 0;
         indestructableObjects = new List<GameObject>();
         spawnWhenEnemiesCleared = false;
@@ -34,7 +24,7 @@ public class Wave : MonoBehaviour
 
     public void SpawnNextEnemy()
     {
-        if(enemySpawnIndex < enemySpawns.Length)
+        if(!HaveSpawnedAllEnemies())
         {
             EnemySpawnInfo enemySpawnInfo = enemySpawns[enemySpawnIndex];
             enemySpawnIndex++;
@@ -78,7 +68,7 @@ public class Wave : MonoBehaviour
         enemiesLeft--;
         if (enemiesLeft == 0)
         {
-            if(enemySpawnIndex < enemySpawns.Length)
+            if(!HaveSpawnedAllEnemies())
             {
                 if (spawnWhenEnemiesCleared)
                 {
@@ -95,6 +85,11 @@ public class Wave : MonoBehaviour
                 Destroy(gameObject);
             }         
         }      
+    }
+
+    private Boolean HaveSpawnedAllEnemies()
+    {
+        return enemySpawnIndex >= enemySpawns.Length;
     }
 }
 

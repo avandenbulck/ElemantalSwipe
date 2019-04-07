@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WayPointMovement : MonoBehaviour
 {
-
     public float speed;
     public Transform[] waypoints;
 
@@ -30,16 +29,7 @@ public class WayPointMovement : MonoBehaviour
         {
             if (moving)
             {
-                Vector2 positionToMoveTo = waypoints[waypointIndex].position;
-                Vector2 newPosition = Vector2.MoveTowards(rb.position, positionToMoveTo, speed * Time.deltaTime);
-                rb.MovePosition(newPosition);
-
-                if (Vector2.Distance(rb.position, positionToMoveTo) < float.Epsilon)
-                {
-                    waypointIndex++;
-                    if (waypointIndex >= waypoints.Length)
-                        waypointIndex = 0;
-                }
+                MoveCloserToWaypoint();   
             }
             
         }
@@ -50,5 +40,19 @@ public class WayPointMovement : MonoBehaviour
     public void StopMoving()
     {
         moving = false;
+    }
+
+    private void MoveCloserToWaypoint()
+    {
+        Vector2 positionToMoveTo = waypoints[waypointIndex].position;
+        Vector2 newPosition = Vector2.MoveTowards(rb.position, positionToMoveTo, speed * Time.deltaTime);
+        rb.MovePosition(newPosition);
+
+        if (Vector2.Distance(rb.position, positionToMoveTo) < float.Epsilon)
+        {
+            waypointIndex++;
+            if (waypointIndex >= waypoints.Length)
+                waypointIndex = 0;
+        }
     }
 }
