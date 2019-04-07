@@ -5,6 +5,7 @@ using UnityEngine;
 public class SwipeDetector : MonoBehaviour
 {
     public LayerMask clickableLayer;
+    public float maxSwipeDistance;
 
     Element lastElementClicked;
     Vector3 pointClickedOnLastElement;
@@ -27,13 +28,16 @@ public class SwipeDetector : MonoBehaviour
                 }
             }
         }
-        if ((Input.touchCount > 0) && (Input.GetTouch(0).phase == TouchPhase.Ended) && lastElementClicked != null)
+        if ((Input.touchCount > 0)  && lastElementClicked != null)
         {
             Vector3 pointReleased = GetPositionOfTouch();
-            Vector2 direction = pointReleased - pointClickedOnLastElement;
+            Vector2 swipeVector = pointReleased - pointClickedOnLastElement;
 
-            lastElementClicked.ShootProjectile(direction);
-            lastElementClicked = null;
+            if(Input.GetTouch(0).phase == TouchPhase.Ended || swipeVector.magnitude > maxSwipeDistance)
+            {
+                lastElementClicked.ShootProjectile(swipeVector);
+                lastElementClicked = null;
+            }     
         }
     }
 

@@ -967,6 +967,7 @@ MonoBehaviour:
   clickableLayer:
     serializedVersion: 2
     m_Bits: 256
+  maxSwipeDistance: 2
 --- !u!4 &1820401393
 Transform:
   m_ObjectHideFlags: 0
