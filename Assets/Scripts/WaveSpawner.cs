@@ -5,7 +5,7 @@ using UnityEngine;
 public class WaveSpawner : MonoBehaviour
 {
     public GameObject[] waves;
-    public float timeBeforeSpawningAWave;
+    public float delayBeforeSpawningWave;
     public event Action<int, int> OnWaveChanged;
     public event Action OnWavesCompleted;
 
@@ -16,10 +16,9 @@ public class WaveSpawner : MonoBehaviour
     {
         waveIndex = 0;
         OnWaveChanged.Invoke(1, waves.Length);
-        StartSpawningWave();
     }
 
-    void StartSpawningWave()
+    public void SpawnNextWave()
     {
         StartCoroutine(SpawnWave());
     }
@@ -31,14 +30,13 @@ public class WaveSpawner : MonoBehaviour
             OnWavesCompleted.Invoke();
         else
         {
-            StartSpawningWave();
             OnWaveChanged.Invoke(waveIndex + 1, waves.Length);
         }  
     }
 
     public IEnumerator SpawnWave()
     {
-        yield return new WaitForSeconds(timeBeforeSpawningAWave);
+        yield return new WaitForSeconds(delayBeforeSpawningWave);
         GameObject waveObject = Instantiate(waves[waveIndex]);
         Wave wave = waveObject.GetComponent<Wave>();
         wave.OnWaveComplete += WaveComplete; 
