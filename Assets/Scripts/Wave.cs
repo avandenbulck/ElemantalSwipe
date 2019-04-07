@@ -34,7 +34,7 @@ public class Wave : MonoBehaviour
             {
                 enemiesLeft += 1;
                 Enemy enemy = enemyObject.GetComponentInChildren<Enemy>();
-                enemy.OnDeath += EnemyDied;
+                enemy.OnDeath.AddListener(EnemyDied);
             }
             else
             {

@@ -15,8 +15,6 @@ public class RotationalMovement : MonoBehaviour
         moving = true;
         rb = GetComponent<Rigidbody2D>();
         Enemy enemyScript = GetComponent<Enemy>();
-        if(enemyScript != null)
-            enemyScript.OnDeath += StopMoving;
     }
 
     public void Update()

@@ -2,11 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
     public List<ElementType> elementWeaknesses;
-    public event Action OnDeath = delegate { };
+    public UnityEvent OnDeath;
     public event Action OnDestroy = delegate { };
 
     Animator animator;
