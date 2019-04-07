@@ -27,12 +27,13 @@ public class SwipeDetector : MonoBehaviour
                 }
             }
         }
-        if ((Input.touchCount > 0) && (Input.GetTouch(0).phase == TouchPhase.Ended))
+        if ((Input.touchCount > 0) && (Input.GetTouch(0).phase == TouchPhase.Ended) && lastElementClicked != null)
         {
             Vector3 pointReleased = GetPositionOfTouch();
             Vector2 direction = pointReleased - pointClickedOnLastElement;
 
             lastElementClicked.ShootProjectile(direction);
+            lastElementClicked = null;
         }
     }
 
