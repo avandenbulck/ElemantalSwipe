@@ -9,8 +9,7 @@ public class Wall : MonoBehaviour
         Projectile projectile = collision.gameObject.GetComponent<Projectile>();
         if (projectile != null)
         {
-            Destroy(collision.gameObject);
-            AudioManager.instance.PlayResistantHitSound();
+            projectile.Hit(false);
         }
     }
 }

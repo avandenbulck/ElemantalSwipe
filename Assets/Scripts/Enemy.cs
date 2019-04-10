@@ -24,16 +24,15 @@ public class Enemy : MonoBehaviour
         Projectile collidedProjectile = collidedGameObject.GetComponent<Projectile>();
         if (collidedProjectile != null)
         {
-            Destroy(collidedGameObject);
-            if (elementWeaknesses.Contains(collidedProjectile.elementType))
+            bool isVulnerableToElement = elementWeaknesses.Contains(collidedProjectile.elementType);
+            collidedProjectile.Hit(isVulnerableToElement);
+            if (isVulnerableToElement)
             {           
                 AudioManager.instance.PlayVunerableHitSound();
                 OnDeath.Invoke();
                 animator.Play("Destroyed");
                 DisableColliders();
-            }
-            else
-                AudioManager.instance.PlayResistantHitSound();
+            }             
         }
     }
 
