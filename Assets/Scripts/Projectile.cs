@@ -17,12 +17,15 @@ public class Projectile : MonoBehaviour
         rb.velocity = direction.normalized * speed;
     }
 
-    public void Hit(bool objectWasVulnerable)
+    public void Hit(bool objectWasVulnerable, GameObject objectHit)
     {
         if (!objectWasVulnerable)
         {
             Instantiate(prefabToSpawnOnDeath, pointToSpawnPrefabOnDeath.position, Quaternion.identity);
             AudioManager.instance.PlayResistantHitSound();
+        } else
+        {
+            Instantiate(prefabToSpawnOnDeath, objectHit.transform.position, Quaternion.identity);
         }
         
         Destroy(this.gameObject);

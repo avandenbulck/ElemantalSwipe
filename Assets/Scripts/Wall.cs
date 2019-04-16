@@ -9,7 +9,7 @@ public class Wall : MonoBehaviour
         Projectile projectile = collision.gameObject.GetComponent<Projectile>();
         if (projectile != null)
         {
-            projectile.Hit(false);
+            projectile.Hit(false, this.gameObject);
         }
     }
 }
