@@ -38,6 +38,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: IndestructibleEnemy
+    uniqueID: 4067052859
+    locked: 0
+  - name: Spark
+    uniqueID: 626931687
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -46,4 +52,7 @@ TagManager:
     locked: 0
   - name: Projectile
     uniqueID: 1754948203
+    locked: 0
+  - name: Enemy
+    uniqueID: 570437239
     locked: 0
