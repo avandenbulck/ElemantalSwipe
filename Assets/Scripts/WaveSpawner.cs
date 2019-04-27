@@ -11,6 +11,11 @@ public class WaveSpawner : MonoBehaviour
 
     int waveIndex;
 
+    public int CurrentWave()
+    {
+        return waveIndex + 1;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

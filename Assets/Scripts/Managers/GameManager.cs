@@ -9,18 +9,26 @@ public class GameManager : MonoBehaviour
     public WaveSpawner waveSpawner;
     public UIManager uiManager;
 
-    int time;
+    float time;
+    bool gameRunning;
 
     // Start is called before the first frame update
     void Start()
-    {
+    {      
         waveSpawner.OnWaveChanged += WaveChanged;
         waveSpawner.OnWavesCompleted += LevelComplete;
+        time = 0;
+        uiManager.UpdateTime(time);
+        gameRunning = false;
     }
 
-    private void LevelComplete()
+    void Update()
     {
-        uiManager.ShowLevelCompleteText();
+        if (gameRunning)
+        {
+            time += Time.deltaTime;
+            uiManager.UpdateTime(time); 
+        }
     }
 
     private void WaveChanged(int currentWave, int amountOfWaves)
@@ -30,6 +38,16 @@ public class GameManager : MonoBehaviour
 
     public void WaveTextShown()
     {
+        if(waveSpawner.CurrentWave() == 1)
+        {
+            gameRunning = true;
+        }
         waveSpawner.SpawnNextWave();
+    }
+
+    private void LevelComplete()
+    {
+        gameRunning = false;
+        uiManager.ShowLevelCompleteText();
     }
 }

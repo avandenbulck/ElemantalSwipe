@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI waveStatusText;
     public GameObject levelCompleteText;
     public TextMeshProUGUI waveStartAndFinishText;
+    public TextMeshProUGUI timeText;
 
     [Header("Timing")]
     public float timeDelayBeforeShowingFirstText;
@@ -49,5 +50,14 @@ public class UIManager : MonoBehaviour
     public void ShowLevelCompleteText()
     {
         levelCompleteText.SetActive(true);
+    }
+
+    public void UpdateTime(float time)
+    {
+        int minutes = (int)Math.Floor(time) / 60;
+        int seconds = (int)Math.Floor(time) % 60;
+
+        string text = minutes.ToString("00") + ":" + seconds.ToString("00");
+        timeText.text = text;
     }
 }
