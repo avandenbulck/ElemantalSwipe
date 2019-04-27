@@ -7,7 +7,6 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     [Header("Dependencies")]
-    public WaveSpawner waveSpawner;
     public TextMeshProUGUI waveStatusText;
     public GameObject levelCompleteText;
     public TextMeshProUGUI waveStartAndFinishText;
@@ -20,18 +19,16 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        waveSpawner.OnWaveChanged += WaveChanged;
-        waveSpawner.OnWavesCompleted += LevelComplete;
         levelCompleteText.SetActive(false);
         waveStartAndFinishText.text = "";
     }
 
-    public void WaveChanged(int currentWave, int amountOfWaves)
+    public void SetWaveText(int currentWave, int amountOfWaves, Action callback)
     {
-        StartCoroutine(ShowWaveText(currentWave,amountOfWaves));  
+        StartCoroutine(ShowWaveText(currentWave, amountOfWaves, callback));  
     }
 
-    public IEnumerator ShowWaveText(int currentWave, int amountOfWaves)
+    public IEnumerator ShowWaveText(int currentWave, int amountOfWaves, Action callback)
     {
         yield return new WaitForSeconds(timeDelayBeforeShowingFirstText);
 
@@ -46,10 +43,10 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(timeToShowWaveCompletedText);
 
         waveStartAndFinishText.text = "";
-        waveSpawner.SpawnNextWave();
+        callback();
     }
 
-    public void LevelComplete()
+    public void ShowLevelCompleteText()
     {
         levelCompleteText.SetActive(true);
     }
