@@ -5,12 +5,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [Header("Dependencies")]
-    public WaveSpawner waveSpawner;
+    [Header("Dependencies")]   
     public UIManager uiManager;
 
     float time;
     bool gameRunning;
+    WaveSpawner waveSpawner;
+
+    private void Awake()
+    {
+        waveSpawner = GameObject.FindGameObjectWithTag("WaveSpawner").GetComponent<WaveSpawner>();
+    }
 
     // Start is called before the first frame update
     void Start()

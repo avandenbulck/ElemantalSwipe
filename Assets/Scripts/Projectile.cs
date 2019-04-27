@@ -9,6 +9,14 @@ public class Projectile : MonoBehaviour
     public GameObject prefabToSpawnOnDeath;
     public Transform pointToSpawnPrefabOnDeath;
     public float speed;
+    public bool survivesOnVulnerableHit;
+
+    Animator animator;
+
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     public void Shoot(Vector2 direction)
     {
@@ -19,15 +27,18 @@ public class Projectile : MonoBehaviour
 
     public void Hit(bool objectWasVulnerable, GameObject objectHit)
     {
-        if (!objectWasVulnerable)
+        if (!objectWasVulnerable || !survivesOnVulnerableHit)
         {
+            if(!objectWasVulnerable)
+                AudioManager.instance.PlayResistantHitSound();
+
             Instantiate(prefabToSpawnOnDeath, pointToSpawnPrefabOnDeath.position, Quaternion.identity);
-            AudioManager.instance.PlayResistantHitSound();
-        } else
-        {
-            Instantiate(prefabToSpawnOnDeath, objectHit.transform.position, Quaternion.identity);
-        }
-        
+            DestroyGameObject();
+        }    
+    }
+
+    public void DestroyGameObject()
+    {
         Destroy(this.gameObject);
     }
 }

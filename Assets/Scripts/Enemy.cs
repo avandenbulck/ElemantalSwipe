@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void DestroyObject()
+    public void DestroyGameObject()
     {
         OnDestroy.Invoke();
         Destroy(this.gameObject);

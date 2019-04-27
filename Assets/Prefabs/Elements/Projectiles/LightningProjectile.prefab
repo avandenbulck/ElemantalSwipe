@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7795880794329181009}
   - component: {fileID: 1842589659757170557}
   - component: {fileID: 2645142000155791738}
+  - component: {fileID: 335378250881424715}
   m_Layer: 9
   m_Name: LightningProjectile
   m_TagString: Untagged
@@ -128,7 +129,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2190655, y: 1}
+  m_Size: {x: 0.13, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &2645142000155791738
 MonoBehaviour:
@@ -147,6 +148,26 @@ MonoBehaviour:
     type: 3}
   pointToSpawnPrefabOnDeath: {fileID: 8889661050072531663}
   speed: 15
+  destroyType: 1
+--- !u!95 &335378250881424715
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881705956883349226}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7080517419761186437
 GameObject:
   m_ObjectHideFlags: 0
