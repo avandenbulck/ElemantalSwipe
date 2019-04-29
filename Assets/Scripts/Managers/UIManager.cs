@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     [Header("Dependencies")]
     public TextMeshProUGUI waveStatusText;
-    public GameObject levelCompleteText;
+    public TextMeshProUGUI levelCompleteText;
     public TextMeshProUGUI waveStartAndFinishText;
     public TextMeshProUGUI timeText;
     public GameObject backToMainMenuButton;
@@ -22,7 +23,8 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        levelCompleteText.SetActive(false);
+        levelCompleteText.text = "";
+        backToMainMenuButton.SetActive(false);
         waveStartAndFinishText.text = "";
     }
 
@@ -49,9 +51,9 @@ public class UIManager : MonoBehaviour
         callback();
     }
 
-    public void ShowLevelCompleteText()
+    public void ShowLevelCompleteText(float time)
     {
-        levelCompleteText.SetActive(true);
+        levelCompleteText.text = "LEVEL COMPLETE\n\n" + "TIME\n" + GetTimeString(time);
         backToMainMenuButton.SetActive(true);
     }
 
@@ -62,10 +64,15 @@ public class UIManager : MonoBehaviour
 
     public void UpdateTime(float time)
     {
+        timeText.text = GetTimeString(time);
+    }
+
+    public string GetTimeString(float time)
+    {
         int minutes = (int)Math.Floor(time) / 60;
         int seconds = (int)Math.Floor(time) % 60;
 
-        string text = minutes.ToString("00") + ":" + seconds.ToString("00");
-        timeText.text = text;
+        string timeString = minutes.ToString("00") + ":" + seconds.ToString("00");
+        return timeString;
     }
 }

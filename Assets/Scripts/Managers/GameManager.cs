@@ -53,6 +53,6 @@ public class GameManager : MonoBehaviour
     private void LevelComplete()
     {
         gameRunning = false;
-        uiManager.ShowLevelCompleteText();
+        uiManager.ShowLevelCompleteText(time);
     }
 }

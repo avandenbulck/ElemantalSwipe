@@ -112,6 +112,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &104869380 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 465952776375301425, guid: ac9bf0488ef8c0f4f991735cd8d21d02,
+    type: 3}
+  m_PrefabInstance: {fileID: 465952777070238828}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1049337031 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1654302092979094979, guid: 9474e9de05e874a4dbbccff8169b0bfd,
@@ -288,7 +300,12 @@ PrefabInstance:
     - target: {fileID: 465952775179622368, guid: ac9bf0488ef8c0f4f991735cd8d21d02,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -15.800049
+      value: -15.800781
+      objectReference: {fileID: 0}
+    - target: {fileID: 465952775179622368, guid: ac9bf0488ef8c0f4f991735cd8d21d02,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -36.960938
       objectReference: {fileID: 0}
     - target: {fileID: 465952775179622369, guid: ac9bf0488ef8c0f4f991735cd8d21d02,
         type: 3}
@@ -308,6 +325,31 @@ PrefabInstance:
     - target: {fileID: 465952776375301425, guid: ac9bf0488ef8c0f4f991735cd8d21d02,
         type: 3}
       propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 465952776375301425, guid: ac9bf0488ef8c0f4f991735cd8d21d02,
+        type: 3}
+      propertyPath: m_text
+      value: LEVEL COMPLETE
+      objectReference: {fileID: 0}
+    - target: {fileID: 465952776375301425, guid: ac9bf0488ef8c0f4f991735cd8d21d02,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 465952776375301425, guid: ac9bf0488ef8c0f4f991735cd8d21d02,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 465952776375301425, guid: ac9bf0488ef8c0f4f991735cd8d21d02,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 465952776375301425, guid: ac9bf0488ef8c0f4f991735cd8d21d02,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 465952775860625055, guid: ac9bf0488ef8c0f4f991735cd8d21d02,
@@ -323,12 +365,27 @@ PrefabInstance:
     - target: {fileID: 465952775122874179, guid: ac9bf0488ef8c0f4f991735cd8d21d02,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -37.199707
+      value: -37.19922
       objectReference: {fileID: 0}
+    - target: {fileID: 465952775860625053, guid: ac9bf0488ef8c0f4f991735cd8d21d02,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 465952776375301431, guid: ac9bf0488ef8c0f4f991735cd8d21d02,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 465952776921783702, guid: ac9bf0488ef8c0f4f991735cd8d21d02,
+        type: 3}
+      propertyPath: levelCompleteText
+      value: 
+      objectReference: {fileID: 104869380}
     - target: {fileID: 3512702500466581735, guid: ac9bf0488ef8c0f4f991735cd8d21d02,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5474911905741573164, guid: ac9bf0488ef8c0f4f991735cd8d21d02,
         type: 3}
