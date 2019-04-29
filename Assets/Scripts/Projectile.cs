@@ -31,15 +31,16 @@ public class Projectile : MonoBehaviour
     {
         if (!objectWasVulnerable || !survivesOnVulnerableHit)
         {
-            if(!objectWasVulnerable)
-                AudioManager.instance.PlayResistantHitSound();
-
             if(bounces && bouncableObject)
             {
+                AudioManager.instance.PlayBounceSound();
                 Vector2 newVelocity = Vector2.Reflect(rb.velocity, normalToBounce);
                 rb.velocity = newVelocity;
             } else
             {
+                if (!objectWasVulnerable)
+                    AudioManager.instance.PlayResistantHitSound();
+
                 Instantiate(prefabToSpawnOnDeath, pointToSpawnPrefabOnDeath.position, Quaternion.identity);
                 DestroyGameObject();
             }     

@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource vunerableHitSound;
     public AudioSource resistantHitSound;
+    public AudioSource bounceSound;
 
     void Awake()
     {
@@ -29,8 +30,15 @@ public class AudioManager : MonoBehaviour
         PlaySourceOneShot(resistantHitSound);
     }
 
+    public void PlayBounceSound()
+    {
+        PlaySourceOneShot(bounceSound);
+    }
+
     public void PlaySourceOneShot(AudioSource audioSource)
     {
         audioSource.PlayOneShot(audioSource.clip);
     }
+
+   
 }
