@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
         if (collidedProjectile != null)
         {
             bool isVulnerableToElement = elementWeaknesses.Contains(collidedProjectile.elementType);
-            collidedProjectile.Hit(isVulnerableToElement, this.gameObject);
+            collidedProjectile.Hit(isVulnerableToElement, false, Vector2.zero);
             if (isVulnerableToElement)
             {           
                 AudioManager.instance.PlayVunerableHitSound();

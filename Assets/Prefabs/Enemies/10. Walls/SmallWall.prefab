@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55b7f0c1e5da1f046af93b8b470f3e06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalForBounce: {x: 0, y: 1}
 --- !u!1 &1256991930544297916
 GameObject:
   m_ObjectHideFlags: 0

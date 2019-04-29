@@ -127,7 +127,7 @@ PrefabInstance:
     - target: {fileID: 2645142000155791738, guid: 8674971128e5fa1488dbc73be2fb863e,
         type: 3}
       propertyPath: elementType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2645142000155791738, guid: 8674971128e5fa1488dbc73be2fb863e,
         type: 3}
@@ -150,16 +150,21 @@ PrefabInstance:
       propertyPath: survivesOnVulnerableHit
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8889661050072531663, guid: 8674971128e5fa1488dbc73be2fb863e,
+    - target: {fileID: 2645142000155791738, guid: 8674971128e5fa1488dbc73be2fb863e,
         type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
+      propertyPath: bounces
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 335378250881424715, guid: 8674971128e5fa1488dbc73be2fb863e,
         type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: c52ea211867ec8f43b2ae410c2aa159b, type: 2}
+    - target: {fileID: 8889661050072531663, guid: 8674971128e5fa1488dbc73be2fb863e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1842589659757170557, guid: 8674971128e5fa1488dbc73be2fb863e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8674971128e5fa1488dbc73be2fb863e, type: 3}
