@@ -5,8 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuManager : MonoBehaviour
 {
+    public GameObject startButton;
+    public GameObject levelSelectButtons;
+
     public void OnStartButtonClick()
     {
-        SceneManager.LoadScene("Level1");
+        startButton.SetActive(false);
+        levelSelectButtons.SetActive(true);
+    }
+
+    public void StartLevel(int level)
+    {
+        SceneManager.LoadScene("Level" + level);
     }
 }
