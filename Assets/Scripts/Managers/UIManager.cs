@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class UIManager : MonoBehaviour
     public GameObject levelCompleteText;
     public TextMeshProUGUI waveStartAndFinishText;
     public TextMeshProUGUI timeText;
+    public GameObject backToMainMenuButton;
 
     [Header("Timing")]
     public float timeDelayBeforeShowingFirstText;
@@ -50,6 +52,12 @@ public class UIManager : MonoBehaviour
     public void ShowLevelCompleteText()
     {
         levelCompleteText.SetActive(true);
+        backToMainMenuButton.SetActive(true);
+    }
+
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void UpdateTime(float time)
